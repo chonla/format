@@ -60,3 +60,20 @@ func TestSprintf(t *testing.T) {
 		t.Errorf("result should be Louis loves Susan. Susan also love Louis. but %v", s)
 	}
 }
+
+func TestSprintfFloatsWithPrecision(t *testing.T) {
+	pat := "%<float>f / %<floatprecision>.1f / %<long>g / %<longprecision>.3g"
+	params := map[string]interface{}{
+		"float": 5.034560,
+		"floatprecision": 5.03456,
+		"long": 5.03456,
+		"longprecision": 5.03456,
+	}
+
+	s := Sprintf(pat, params)
+
+	expectedresult := "5.034560 / 5.0 / 5.03456 / 5.03"
+	if s != expectedresult {
+		t.Errorf("result should be (%v) but is (%v)", expectedresult, s)
+	}
+}
