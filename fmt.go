@@ -5,7 +5,7 @@ import (
 	"regexp"
 )
 
-var re = regexp.MustCompile("%<([a-zA-Z0-9_]+)>[xsvTtbcdoqXxUeEfFgGp]")
+var re = regexp.MustCompile("%<([a-zA-Z0-9_]+)>[.0-9]*[xsvTtbcdoqXxUeEfFgGp]")
 
 // Printf support named format
 func Printf(format string, params map[string]interface{}) {
