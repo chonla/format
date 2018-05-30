@@ -42,16 +42,12 @@ func parse(format string, params map[string]interface{}) (string, []interface{})
 }
 
 func reformat(f string) (string, []string) {
-	m := re.FindAllStringSubmatch(f, -1)
 	i := re.FindAllStringSubmatchIndex(f, -1)
 
 	ord := []string{}
-	for _, v := range m {
-		ord = append(ord, v[1])
-	}
-
 	pair := []int{0}
 	for _, v := range i {
+		ord = append(ord, f[v[2]:v[3]])
 		pair = append(pair, v[2]-1)
 		pair = append(pair, v[3]+1)
 	}
