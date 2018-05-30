@@ -1,6 +1,7 @@
 package format
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -61,13 +62,27 @@ func TestSprintf(t *testing.T) {
 	}
 }
 
+func TestSprintfln(t *testing.T) {
+	pat := "%<brother>s loves %<sister>s. %<sister>s also loves %<brother>s."
+	params := map[string]interface{}{
+		"sister":  "Susan",
+		"brother": "Louis",
+	}
+
+	s := Sprintfln(pat, params)
+
+	if s != "Louis loves Susan. Susan also loves Louis."+fmt.Sprintln() {
+		t.Errorf("result should be Louis loves Susan. Susan also love Louis"+fmt.Sprintln()+". but %v", s)
+	}
+}
+
 func TestSprintfFloatsWithPrecision(t *testing.T) {
 	pat := "%<float>f / %<floatprecision>.1f / %<long>g / %<longprecision>.3g"
 	params := map[string]interface{}{
-		"float": 5.034560,
+		"float":          5.034560,
 		"floatprecision": 5.03456,
-		"long": 5.03456,
-		"longprecision": 5.03456,
+		"long":           5.03456,
+		"longprecision":  5.03456,
 	}
 
 	s := Sprintf(pat, params)

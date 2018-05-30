@@ -13,10 +13,23 @@ func Printf(format string, params map[string]interface{}) {
 	fmt.Printf(f, p...)
 }
 
+// Printfln support named format
+func Printfln(format string, params map[string]interface{}) {
+	f, p := parse(format, params)
+	fmt.Printf(f, p...)
+	fmt.Println()
+}
+
 // Sprintf support named format
 func Sprintf(format string, params map[string]interface{}) string {
 	f, p := parse(format, params)
 	return fmt.Sprintf(f, p...)
+}
+
+// Sprintfln support named format
+func Sprintfln(format string, params map[string]interface{}) string {
+	f, p := parse(format, params)
+	return fmt.Sprintf(f, p...) + fmt.Sprintln()
 }
 
 func parse(format string, params map[string]interface{}) (string, []interface{}) {
