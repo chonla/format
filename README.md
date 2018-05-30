@@ -47,4 +47,6 @@ Louis loves Susan. Susan also loves Louis.
 ## Available methods
 
 * Printf
+* Printfln
 * Sprintf
+* Sprintfln
