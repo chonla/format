@@ -1,10 +1,16 @@
 # Go Named Formatter
 
-This is like Go fmt package but offer named format. Parameters will be parsed to function as map[string]interface{}.
+This is like Go fmt package but offers named format. Parameters will be parsed to function as map[string]interface{}.
+
+## Install
+
+```
+go get -u github.com/chonla/format
+```
 
 ## Usage
 
-Put ```<name>``` in between ```%``` and format. For example, ```%<name>s```.
+Put `<name>` in between `%` and format. For example, `%<name>s`.
 
 ## Naming rule
 
@@ -46,7 +52,18 @@ Louis loves Susan. Susan also loves Louis.
 
 ## Available methods
 
-* Printf
-* Printfln
-* Sprintf
-* Sprintfln
+### Printf
+
+Printf formats string with named parameters and writes to standard output.
+
+### Printfln
+
+Printfln is like Printf but a newline is appended.
+
+### Sprintf
+
+Sprintf formats string with named parameters and return the result.
+
+### Sprintfln
+
+Sprintfln is like Sprintf but a newline is appended.
