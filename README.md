@@ -67,3 +67,7 @@ Sprintf formats string with named parameters and return the result.
 ### Sprintfln
 
 Sprintfln is like Sprintf but a newline is appended.
+
+## License
+
+[MIT](./LICENSE.txt)
