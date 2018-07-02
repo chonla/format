@@ -34,9 +34,9 @@ func Sprintfln(format string, params map[string]interface{}) string {
 
 func parse(format string, params map[string]interface{}) (string, []interface{}) {
 	f, n := reformat(format)
-	var p []interface{}
-	for _, v := range n {
-		p = append(p, params[v])
+	p := make([]interface{}, len(n))
+	for i, v := range n {
+		p[i] = params[v]
 	}
 	return f, p
 }
