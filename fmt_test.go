@@ -92,3 +92,15 @@ func TestSprintfFloatsWithPrecision(t *testing.T) {
 		t.Errorf("result should be (%v) but is (%v)", expectedresult, s)
 	}
 }
+
+func BenchmarkSprintln(b *testing.B) {
+	pat := "%<brother>s loves %<sister>s. %<sister>s also loves %<brother>s."
+	params := map[string]interface{}{
+		"sister":  "Susan",
+		"brother": "Louis",
+	}
+
+	for i := 0; i < b.N; i++ {
+		_ = Sprintfln(pat, params)
+	}
+}
