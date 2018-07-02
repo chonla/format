@@ -29,7 +29,7 @@ func Sprintf(format string, params map[string]interface{}) string {
 // Sprintfln support named format
 func Sprintfln(format string, params map[string]interface{}) string {
 	f, p := parse(format, params)
-	return fmt.Sprintf(f, p...) + fmt.Sprintln()
+	return fmt.Sprintf(f+"\n", p...)
 }
 
 func parse(format string, params map[string]interface{}) (string, []interface{}) {
