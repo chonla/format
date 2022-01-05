@@ -23,7 +23,7 @@ var params = map[string]interface{}{
     "sister": "Susan",
     "brother": "Louis",
 }
-format.Printf("%<brother> loves %<sister>.", params)
+format.Printf("%<brother>s loves %<sister>s.", params)
 ```
 
 ## Output
