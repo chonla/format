@@ -62,6 +62,23 @@ func TestSprintf(t *testing.T) {
 	}
 }
 
+func TestSprintfStruct(t *testing.T) {
+	pat := "%<Brother>s loves %<Sister>s. %<Sister>s also loves %<Brother>s."
+	params := struct {
+		Brother string
+		Sister  string
+	}{
+		Brother: "Louis",
+		Sister:  "Susan",
+	}
+
+	s := Sprintf(pat, params)
+
+	if s != "Louis loves Susan. Susan also loves Louis." {
+		t.Errorf("result should be Louis loves Susan. Susan also love Louis. but %v", s)
+	}
+}
+
 func TestSprintfln(t *testing.T) {
 	pat := "%<brother>s loves %<sister>s. %<sister>s also loves %<brother>s."
 	params := map[string]interface{}{
